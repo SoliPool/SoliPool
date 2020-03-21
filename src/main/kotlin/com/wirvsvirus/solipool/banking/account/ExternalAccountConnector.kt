@@ -8,7 +8,7 @@ interface ExternalAccountConnector {
 
     fun getAccountByPoolId(poolId: UUID): AccountInfoDto?
 
-    fun initiateDeposit(poolId: UUID, user: User, amount: BigDecimal)
+    fun initiateDeposit(poolId: UUID, user: User, amount: BigDecimal): ExternalRequestState
 
     fun initiatePayout(poolId: UUID, user: User, amount: BigDecimal): ExternalRequestState
 }

@@ -10,7 +10,7 @@ import java.math.BigDecimal
 import java.util.*
 
 @Service
-class LocalDummyAccountRepository : ExternalAccountConnector {
+class LocalDummyAccountConnector : ExternalAccountConnector {
 
     override fun getAccountByPoolId(poolId: UUID): AccountInfoDto? {
         return transaction {
@@ -19,7 +19,7 @@ class LocalDummyAccountRepository : ExternalAccountConnector {
         }
     }
 
-    override fun initiateDeposit(poolId: UUID, user: User, amount: BigDecimal) {
+    override fun initiateDeposit(poolId: UUID, user: User, amount: BigDecimal): ExternalRequestState {
         TODO("Not yet implemented")
     }
 

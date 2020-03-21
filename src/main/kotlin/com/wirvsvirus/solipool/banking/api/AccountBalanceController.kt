@@ -3,7 +3,6 @@ package com.wirvsvirus.solipool.banking.api
 import com.wirvsvirus.solipool.banking.business.AccountBalanceService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
-import java.text.NumberFormat
 import java.util.*
 
 
@@ -14,9 +13,9 @@ class AccountBalanceController @Autowired constructor(val balanceService: Accoun
 
     @GetMapping("{poolId}")
     @ResponseBody
-    fun getAvailableFunds(@PathVariable poolId: UUID): BalanceDto? {
+    fun getAvailableFunds(@PathVariable poolId: UUID): BalanceDto {
         return with(balanceService.getBalanceForPool(poolId)) {
-            BalanceDto(poolId, this.toDouble(), NumberFormat.getCurrencyInstance().format(this.toDouble()))
+            BalanceDto(poolId, this.toDouble(), balanceService.formatToCurrency(this))
         }
     }
 }

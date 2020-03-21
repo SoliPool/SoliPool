@@ -7,4 +7,6 @@ import java.util.*
 interface AccountBalanceService {
 
     fun getBalanceForPool(poolId: UUID): BigDecimal
+
+    fun formatToCurrency(balance: BigDecimal): String
 }

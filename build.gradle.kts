@@ -58,3 +58,9 @@ tasks.asciidoctor {
 	inputs.dir(snippetsDir)
 	dependsOn(tasks.test)
 }
+
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+   this.archiveFileName.set("${archiveBaseName.get()}.jar")
+}
+

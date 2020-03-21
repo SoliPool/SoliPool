@@ -23,7 +23,8 @@ repositories {
 	mavenCentral()
 }
 
-extra["snippetsDir"] = file("build/generated-snippets")
+val snippetsDir = file("build/generated-snippets")
+extra["snippetsDir"] = snippetsDir
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -45,7 +46,7 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = "11"
 	}
 }
 
@@ -55,5 +56,5 @@ tasks.test {
 
 tasks.asciidoctor {
 	inputs.dir(snippetsDir)
-	dependsOn(test)
+	dependsOn(tasks.test)
 }

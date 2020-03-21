@@ -1,0 +1,12 @@
+[Unit]
+Description=SoliPool
+
+[Service]
+Type=simple
+User=solipool
+WorkingDirectory=/opt/solipool
+ExecStart=/usr/bin/java -jar /opt/solipool/solipool.jar
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

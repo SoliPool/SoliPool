@@ -23,7 +23,7 @@ fun setupDB() {
 fun createTestData() {
     transaction {
         addLogger(StdOutSqlLogger)
-        User.new {
+        UserRow.new {
             firstname = "Test"
             lastname = "Person"
         }

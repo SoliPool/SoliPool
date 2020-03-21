@@ -1,7 +1,7 @@
-package com.wirvsvirus.solipool.` moneypool`
+package com.wirvsvirus.solipool.moneypool
 
-import com.wirvsvirus.solipool.` moneypool`.model.Moneypool
-import com.wirvsvirus.solipool.` moneypool`.model.MoneypoolCreateModel
+import com.wirvsvirus.solipool.moneypool.model.Moneypool
+import com.wirvsvirus.solipool.moneypool.model.MoneypoolCreateModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.util.*

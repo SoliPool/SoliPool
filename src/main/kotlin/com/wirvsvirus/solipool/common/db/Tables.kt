@@ -1,6 +1,7 @@
 package com.wirvsvirus.solipool.common.db
 
 import org.jetbrains.exposed.dao.id.IntIdTable
+import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.SchemaUtils
 
 object Tables {
@@ -11,9 +12,16 @@ object Tables {
         val lastname = this.varchar("lastname", 120)
     }
 
+    object Moneypools : UUIDTable() {
+        val name = this.varchar("name", 120)
+        val creator = reference("creator", Users)
+
+    }
+
+
     fun createTables() {
         // All table definitions have to be added here
-        SchemaUtils.create(Users)
+        SchemaUtils.create(Users, Moneypools)
     }
 
 }

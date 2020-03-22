@@ -18,14 +18,3 @@ fun setupDB() {
         Tables.createTables()
     }
 }
-
-// This can be deleted once we have real data
-fun createTestData() {
-    transaction {
-        addLogger(StdOutSqlLogger)
-        UserRow.new {
-            firstname = "Test"
-            lastname = "Person"
-        }
-    }
-}

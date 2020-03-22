@@ -12,7 +12,7 @@ class MoneypoolController @Autowired constructor(
         private val moneypoolService: MoneypoolService) {
 
     @GetMapping("{id}")
-    fun getMoneypool(@PathVariable id: UUID): Moneypool {
+    fun getMoneypool(@PathVariable id: UUID): Moneypool? {
         return moneypoolService.getMoneypool(id)
     }
 

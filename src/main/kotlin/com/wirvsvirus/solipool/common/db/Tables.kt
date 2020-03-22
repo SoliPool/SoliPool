@@ -14,7 +14,7 @@ object Tables {
 
     object Moneypools : UUIDTable() {
         val name = this.varchar("name", 120)
-        val creator = reference("creator", Users)
+        val creatorId = reference("creator", Users.id)
 
     }
 

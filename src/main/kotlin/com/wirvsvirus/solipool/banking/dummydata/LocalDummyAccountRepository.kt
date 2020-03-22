@@ -3,7 +3,7 @@ package com.wirvsvirus.solipool.banking.dummydata
 import com.wirvsvirus.solipool.banking.account.AccountInfoDto
 import com.wirvsvirus.solipool.banking.account.ExternalAccountConnector
 import com.wirvsvirus.solipool.banking.account.ExternalRequestState
-import com.wirvsvirus.solipool.common.db.User
+import com.wirvsvirus.solipool.common.db.UserRow
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
@@ -19,11 +19,11 @@ class LocalDummyAccountConnector : ExternalAccountConnector {
         }
     }
 
-    override fun initiateDeposit(poolId: UUID, user: User, amount: BigDecimal): ExternalRequestState {
+    override fun initiateDeposit(poolId: UUID, user: UserRow, amount: BigDecimal): ExternalRequestState {
         TODO("Not yet implemented")
     }
 
-    override fun initiatePayout(poolId: UUID, user: User, amount: BigDecimal): ExternalRequestState {
+    override fun initiatePayout(poolId: UUID, user: UserRow, amount: BigDecimal): ExternalRequestState {
         TODO("Not yet implemented")
     }
 }

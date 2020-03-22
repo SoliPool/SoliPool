@@ -13,5 +13,5 @@ class MoneypoolRow(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<MoneypoolRow>(Tables.Moneypools)
 
     var name by Tables.Moneypools.name
-    var creator by UserRow referencedOn Tables.Moneypools.creator
+    var creatorId by Tables.Moneypools.creatorId
 }

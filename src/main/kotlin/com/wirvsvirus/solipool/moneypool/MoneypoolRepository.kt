@@ -1,5 +1,6 @@
 package com.wirvsvirus.solipool.moneypool
 
+import com.wirvsvirus.solipool.common.api.errors.NotFound
 import com.wirvsvirus.solipool.common.db.MoneypoolRow
 import com.wirvsvirus.solipool.common.db.UserRow
 import org.jetbrains.exposed.sql.StdOutSqlLogger
@@ -14,11 +15,10 @@ class MoneypoolRepository {
     fun createMoneypool(moneypoolName: String, creatorId: Int) : MoneypoolRow {
         return transaction {
             addLogger(StdOutSqlLogger)
+            val creator: UserRow = UserRow.findById(creatorId) ?: throw NotFound()
             MoneypoolRow.new {
                 name = moneypoolName
-                creator = transaction {
-                    UserRow.findById(creatorId)!!
-                }
+                this.creatorId = creator.id
             }
         }
     }
